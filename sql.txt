@@ -1,0 +1,59 @@
+Q1. What happens when you use .find() and .limit() combination ? 
+
+        ?If we use both .find() and .limit() it will execute how many record lines which which will be specified by the user. 
+
+ex. db.employee.find().limit(2) 
+
+In this only 2 entire data will be executed. 
+
+{ 
+
+“name”:”Anjana”,”contact”:”1234” 
+
+} 
+
+{ 
+
+“name”:”Sanjana”,”contact”:”4321” 
+
+} 
+
+Q2. Try out the operators- $gt, $lt, $gte, $lte, $ne. 
+
+?db.employee.find({“salary”:{$gt:”25000”}}) 
+
+?db.employee.find({“salary”:{$lt:”80000”}}) 
+
+?db.employee.find({“salary”:{$gte:”25000”}}) 
+
+?db.employee.find({“salary”:{$lte:”80000”}}) 
+
+?db.employee.find({“salary”:{$ne:”40000”}}) 
+
+Q3. Tryout the combination of .sort() with .limit() and see what happens. 
+
+->db.employee.find().sort({“name”:1}).pretty().limit() 
+
+Q4. What does .count() returns? 
+
+?db.employee.find().count() 
+
+This counts how many record are there. 
+
+Q5. What happens if you update a record without giving all the field values? 
+
+?All the values will be deleted except the value which we are updating. 
+
+Q6. What happens if you update a match that does not exist? 
+
+? The updated value will be created in that record. 
+
+Q7. We have seen what insert does. Try out and find what upsert does? 
+
+? Upsert is same like insert it will update and also will create a new record. 
+
+Q8. What happens when you use ‘upsert:true’ with update statement? 
+
+? Upsert:true  will update and also will create a new record if the value is not existing. 
+
+db.employee.update({“name”=”Anjana”}:{$set:{“location”:”Bangalore”},{upsert:true}) 
